@@ -29,7 +29,7 @@ public class Restaurant {
     public void showMenu() {
         System.out.println("\nMenu dla restauracji: " + name);
         if (menu.isEmpty()) {
-            System.out.println("Brak posiłków w tej restauracji.");
+            System.out.println("Brak dań w tej restauracji.");
         } else {
             for (int i = 0; i < menu.size(); i++) {
                 System.out.println("   " + (i + 1) + ". " + menu.get(i));
