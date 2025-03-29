@@ -18,14 +18,14 @@ public class RestaurantManager {
         kebab.addMeal("Baklava", 7.99);
 
         Restaurant pizza = new Restaurant("Milano Pizza", "Sobczyka 12/3, Warszawa 33-312");
-        pizza.addMeal("Margherita", 29.99);
-        pizza.addMeal("Pepperoni", 36.99);
-        pizza.addMeal("Hawajska", 32.99);
+        pizza.addMeal("Margherita", 28.99);
+        pizza.addMeal("Pepperoni", 35.99);
+        pizza.addMeal("Hawajska", 31.99);
 
         Restaurant burger = new Restaurant("Meat Burger", "Lipowa 31b/1 Gdańsk 18-111");
         burger.addMeal("Cheeseburger", 29.99);
         burger.addMeal("Hamburger", 27.99);
-        burger.addMeal("Frytki", 15.50);
+        burger.addMeal("Frytki", 14.50);
 
         restaurants.add(kebab);
         restaurants.add(pizza);
@@ -64,7 +64,7 @@ public class RestaurantManager {
             selected.addMeal(mealName, price);
             System.out.println("Danie dodane!");
         } else {
-            System.out.println("Nie znaleziono restauracji.");
+            System.out.println("Nie ma takiej restauracji.");
         }
     }
 
@@ -78,7 +78,7 @@ public class RestaurantManager {
         if (selected != null) {
             selected.showMenu();
         } else {
-            System.out.println("Nie znaleziono restauracji.");
+            System.out.println("Nie ma takiej restauracji.");
         }
     }
 
@@ -92,7 +92,7 @@ public class RestaurantManager {
 
         Restaurant selected = findRestaurantById(restId);
         if (selected == null) {
-            System.out.println("Restauracja nie istnieje.");
+            System.out.println("Nie ma takiej restauracji.");
             return;
         }
 
@@ -111,7 +111,7 @@ public class RestaurantManager {
                 order.addMeal(meal);
                 System.out.println("Dodano: " + meal);
             } else {
-                System.out.println("Nie znaleziono dania.");
+                System.out.println("Nie ma takiego dania.");
             }
         }
 
