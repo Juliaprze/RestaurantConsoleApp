@@ -27,15 +27,16 @@ public class Restaurant {
     }
 
     public void showMenu() {
-        System.out.println("\nMenu dla restauracji: " + name);
+        System.out.println("\nMenu for restaurant: " + name);
         if (menu.isEmpty()) {
-            System.out.println("Brak dań w tej restauracji.");
+            System.out.println("No dishes available in this restaurant.");
         } else {
             for (int i = 0; i < menu.size(); i++) {
                 System.out.println("   " + (i + 1) + ". " + menu.get(i));
             }
         }
     }
+
 
     public void showInfo() {
         System.out.println(id + ". " + name + " - " + address);

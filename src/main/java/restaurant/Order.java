@@ -20,14 +20,15 @@ public class Order {
     }
 
     public void displayOrder() {
-        System.out.println("\nZamówienie dla restauracji ID: " + restaurantId);
+        System.out.println("\nOrder for restaurant ID: " + restaurantId);
         if (orderedMeals.isEmpty()) {
-            System.out.println("Zamówienie jest puste.");
+            System.out.println("The order is empty.");
         } else {
             for (Meal meal : orderedMeals) {
                 System.out.println("   - " + meal);
             }
-            System.out.println("koszt zamówienia: " + totalPrice + " PLN");
+            System.out.println("Total order cost: " + totalPrice + " PLN");
         }
     }
+
 }

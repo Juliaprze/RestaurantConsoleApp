@@ -20,12 +20,12 @@ public class RestaurantManager {
         Restaurant pizza = new Restaurant("Milano Pizza", "Sobczyka 12/3, Warszawa 33-312");
         pizza.addMeal("Margherita", 28.99);
         pizza.addMeal("Pepperoni", 35.99);
-        pizza.addMeal("Hawajska", 31.99);
+        pizza.addMeal("Hawaiian", 31.99);
 
         Restaurant burger = new Restaurant("Meat Burger", "Lipowa 31b/1 Gdańsk 18-111");
         burger.addMeal("Cheeseburger", 29.99);
         burger.addMeal("Hamburger", 27.99);
-        burger.addMeal("Frytki", 14.50);
+        burger.addMeal("Fries", 14.50);
 
         restaurants.add(kebab);
         restaurants.add(pizza);
@@ -39,38 +39,38 @@ public class RestaurantManager {
     }
 
     public void addRestaurant(Scanner scanner) {
-        System.out.println("Podaj nazwę restauracji: ");
+        System.out.println("Enter the restaurant name: ");
         String name = scanner.nextLine();
-        System.out.println("Podaj adres restauracji: ");
+        System.out.println("Enter the restaurant address: ");
         String address = scanner.nextLine();
         restaurants.add(new Restaurant(name, address));
-        System.out.println("Restauracja została dodana!");
+        System.out.println("Restaurant added!");
     }
 
     public void addMealToRestaurant(Scanner scanner) {
         showRestaurants();
-        System.out.print("\nWybierz ID restauracji, do której chcesz dodać danie: ");
+        System.out.print("\nSelect the restaurant ID to add a meal: ");
         int restId = scanner.nextInt();
         scanner.nextLine();
 
         Restaurant selected = findRestaurantById(restId);
         if (selected != null) {
-            System.out.print("Podaj nazwę dania: ");
+            System.out.print("Enter the meal name: ");
             String mealName = scanner.nextLine();
-            System.out.print("odaj cenę: ");
+            System.out.print("Enter the price: ");
             double price = scanner.nextDouble();
             scanner.nextLine();
 
             selected.addMeal(mealName, price);
-            System.out.println("Danie dodane!");
+            System.out.println("Meal added!");
         } else {
-            System.out.println("Nie ma takiej restauracji.");
+            System.out.println("Restaurant not found.");
         }
     }
 
     public void showMealsInRestaurant(Scanner scanner) {
         showRestaurants();
-        System.out.print("\nWybierz ID restauracji, aby zobaczyć menu: ");
+        System.out.print("\nSelect the restaurant ID to view the menu: ");
         int restId = scanner.nextInt();
         scanner.nextLine();
 
@@ -78,21 +78,19 @@ public class RestaurantManager {
         if (selected != null) {
             selected.showMenu();
         } else {
-            System.out.println("Nie ma takiej restauracji.");
+            System.out.println("Restaurant not found.");
         }
     }
 
-
-
     public void placeOrder(Scanner scanner) {
         showRestaurants();
-        System.out.print("\nWybierz ID restauracji, do której chcesz złożyć zamówienie: ");
+        System.out.print("\nSelect the restaurant ID to place an order: ");
         int restId = scanner.nextInt();
         scanner.nextLine();
 
         Restaurant selected = findRestaurantById(restId);
         if (selected == null) {
-            System.out.println("Nie ma takiej restauracji.");
+            System.out.println("Restaurant not found.");
             return;
         }
 
@@ -100,7 +98,7 @@ public class RestaurantManager {
         selected.showMenu();
 
         while (true) {
-            System.out.print("Wybierz ID posiłku (lub wpisz '0', aby zakończyć zamówienie): ");
+            System.out.print("Select meal ID (or type '0' to finish the order): ");
             int mealId = scanner.nextInt();
             scanner.nextLine();
 
@@ -109,14 +107,14 @@ public class RestaurantManager {
             Meal meal = selected.getMealById(mealId);
             if (meal != null) {
                 order.addMeal(meal);
-                System.out.println("Dodano: " + meal);
+                System.out.println("Added: " + meal);
             } else {
-                System.out.println("Nie ma takiego dania.");
+                System.out.println("Meal not found.");
             }
         }
 
         order.displayOrder();
-        System.out.println("Zamówienie wysłane do restauracji! ");
+        System.out.println("Order sent to the restaurant!");
     }
 
     private Restaurant findRestaurantById(int id) {
@@ -125,4 +123,6 @@ public class RestaurantManager {
         }
         return null;
     }
+
+
 }
